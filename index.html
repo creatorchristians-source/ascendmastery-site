@@ -14,7 +14,7 @@
   Mathew (Matej Serbin) · A2P 10DLC business website · built 2026-10-26.
   Facts come from his GoHighLevel sub-account (legal name, address, email, phone) and
   context/Matej Serbin/business-info.md. No program price anywhere (pricing rule).
-  The contact form posts to FORM_ENDPOINT (a GHL inbound webhook) in the script at the bottom.
+  The contact form is display-only (Christian, 2026-10-26: it only needs to pass A2P review).
 -->
 </head>
 <body>
@@ -144,22 +144,12 @@
 
 <script>
 (function () {
-  // GoHighLevel inbound-webhook URL. Until it is set, submissions fall back to an email draft so nothing is lost.
-  var FORM_ENDPOINT = '';
+  // Display-only form: this site exists for A2P verification, so a submission just confirms on screen.
   var form = document.getElementById('contact-form'), ok = document.getElementById('form-ok');
   form.addEventListener('submit', function (e) {
     e.preventDefault();
     if (!form.reportValidity()) return;
-    var d = {}; new FormData(form).forEach(function (v, k) { d[k] = v; });
-    d.smsTransactional = d.smsTransactional === 'yes'; d.smsMarketing = d.smsMarketing === 'yes';
-    d.source = 'joinascendmastery.com contact form'; d.submittedAt = new Date().toISOString();
-    if (!FORM_ENDPOINT) {
-      location.href = 'mailto:mathew@joinascendmastery.com?subject=' + encodeURIComponent('Website inquiry from ' + d.firstName + ' ' + d.lastName) +
-        '&body=' + encodeURIComponent((d.message || '') + '\n\n' + d.email + (d.phone ? '\n' + d.phone : ''));
-      return;
-    }
-    fetch(FORM_ENDPOINT, { method: 'POST', mode: 'no-cors', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(d) })
-      .finally(function () { form.reset(); ok.style.display = 'block'; });
+    form.reset(); ok.style.display = 'block';
   });
 })();
 </script>
