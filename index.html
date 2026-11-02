@@ -14,7 +14,7 @@
   Mathew (Matej Serbin) · A2P 10DLC business website · built 2026-10-26.
   Facts come from his GoHighLevel sub-account (legal name, address, email, phone) and
   context/Matej Serbin/business-info.md. No program price anywhere (pricing rule).
-  The contact form is display-only (Christian, 2026-10-26: it only needs to pass A2P review).
+  No contact form: A2P now goes through the GHL chat widget (Christian, 2026-11-02). Its embed replaces the CHAT_WIDGET marker.
 -->
 </head>
 <body>
@@ -102,7 +102,7 @@
     <h2>Get In Touch</h2>
     <div class="grid2">
       <div>
-        <p>Questions about the masterclass, the program or an existing membership all come to the same inbox, and we aim to reply within one business day.</p>
+        <p>Questions about the masterclass, the program or an existing membership all come to the same team, by chat, email or phone, and we aim to reply within one business day.</p>
         <dl class="facts">
           <div><dt>Business</dt><dd>MATHEWECOMMERCE LLC, doing business as Ascend Mastery</dd></div>
           <div><dt>Email</dt><dd><a href="mailto:mathew@joinascendmastery.com">mathew@joinascendmastery.com</a></dd></div>
@@ -110,20 +110,12 @@
           <div><dt>Address</dt><dd>5830 E 2nd St, Ste 7000 #22393<br>Casper, WY 82609<br>United States</dd></div>
         </dl>
       </div>
-      <form class="form" id="contact-form" novalidate>
-        <div class="row2">
-          <label class="f">First name<input name="firstName" autocomplete="given-name" required></label>
-          <label class="f">Last name<input name="lastName" autocomplete="family-name" required></label>
-        </div>
-        <label class="f">Email<input type="email" name="email" autocomplete="email" required></label>
-        <label class="f">Phone<input type="tel" name="phone" autocomplete="tel" placeholder="+1 555 123 4567"></label>
-        <label class="f">How can we help?<textarea name="message"></textarea></label>
-        <label class="consent"><input type="checkbox" name="smsTransactional" value="yes"><span>I agree to receive non-marketing text messages from MATHEWECOMMERCE LLC (Ascend Mastery) about my inquiry, masterclass registration and appointment reminders at the number provided. Message frequency varies. Message and data rates may apply. Reply HELP for help or STOP to opt out.</span></label>
-        <label class="consent"><input type="checkbox" name="smsMarketing" value="yes"><span>I agree to receive marketing text messages from MATHEWECOMMERCE LLC (Ascend Mastery), such as program updates and offers, at the number provided. Message frequency varies. Message and data rates may apply. Reply HELP for help or STOP to opt out.</span></label>
-        <button class="btn" type="submit">Send Message</button>
-        <p class="fine">Consent to text messages is not a condition of any purchase, and you can contact us without ticking either box. We never share or sell your mobile number or text messaging consent to third parties for their marketing. See our <a href="privacy.html">Privacy Policy</a> and <a href="terms.html">Terms of Service</a>.</p>
-        <div class="ok" id="form-ok" role="status">Thanks, your message is in. We'll get back to you within one business day.</div>
-      </form>
+      <div class="form">
+        <h3>Chat With Us</h3>
+        <p>The fastest way to reach us is the chat bubble in the bottom corner of this page. Leave your name, email and question there and a member of our team will reply, usually within one business day.</p>
+        <p>If you share your phone number in the chat and tick the consent box, we may also reply by text message about your inquiry, masterclass registration and appointment reminders, and, only if you agree to it, program updates. Message frequency varies. Message and data rates may apply. Reply HELP for help or STOP to opt out at any time.</p>
+        <p class="fine">Consent to text messages is not a condition of any purchase. We never share or sell your mobile number or text messaging consent to third parties for their marketing. See our <a href="privacy.html">Privacy Policy</a> and <a href="terms.html">Terms of Service</a>.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -142,16 +134,7 @@
   </div>
 </footer>
 
-<script>
-(function () {
-  // Display-only form: this site exists for A2P verification, so a submission just confirms on screen.
-  var form = document.getElementById('contact-form'), ok = document.getElementById('form-ok');
-  form.addEventListener('submit', function (e) {
-    e.preventDefault();
-    if (!form.reportValidity()) return;
-    form.reset(); ok.style.display = 'block';
-  });
-})();
-</script>
+<!-- GoHighLevel chat widget: paste the embed from Sites > Chat Widget > Get Code here. -->
+<!-- CHAT_WIDGET -->
 </body>
 </html>
